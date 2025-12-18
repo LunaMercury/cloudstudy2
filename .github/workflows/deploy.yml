@@ -11,6 +11,7 @@ on:
 env:
   NAME: kosa
   USERNAME: kosa
+  USER_PASSSWORD: $${{secrets.USER_PASSWORD}}
 
 # 하나의 Workflow는 1개 이상의 Job으로 구성된다. 
 # 여러 Job은 기본적으로 병렬적으로 수행된다.
@@ -45,3 +46,6 @@ jobs:
 
       - name: 환경변수 USERNAME 출력
         run: echo $${{ env.USERNAME }}
+
+      - name: secret USER_PASSWORD 출력
+        run: echo $${{env.USER_PASSSWORD}}
